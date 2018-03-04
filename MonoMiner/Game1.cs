@@ -11,7 +11,9 @@ namespace MonoMiner
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        World myWorld;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,8 +28,7 @@ namespace MonoMiner
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            myWorld = new World1(this);
             base.Initialize();
         }
 
@@ -49,6 +50,7 @@ namespace MonoMiner
         /// </summary>
         protected override void UnloadContent()
         {
+
             // TODO: Unload any non ContentManager content here
         }
 
@@ -61,9 +63,10 @@ namespace MonoMiner
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            myWorld.UpdateEntities();
 
             // TODO: Add your update logic here
-
+            
             base.Update(gameTime);
         }
 
@@ -76,6 +79,10 @@ namespace MonoMiner
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            myWorld.Draw(spriteBatch);
+            spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
