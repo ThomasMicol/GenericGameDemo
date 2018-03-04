@@ -1,0 +1,7 @@
+﻿
+namespace MonoMiner
+{
+    class Event
+    {
+    }
+}
