@@ -8,7 +8,7 @@ namespace MonoMiner
     {
         protected List<Entity> myEntities = new List<Entity>();
         protected List<Event> myEventList = new List<Event>();
-        protected Game context;
+        protected Game1 context;
 
         protected abstract void BuildWorld();
 
@@ -46,6 +46,33 @@ namespace MonoMiner
             myEntities.Clear();
         }
 
+        public virtual Entity FindObject(Location aLocation, Directions aDir)
+        {
+            if (aDir == Directions.North)
+            {
+                aLocation.Y -= 20;
+            }
+            if (aDir == Directions.East)
+            {
+                aLocation.X += 20;
+            }
+            if (aDir == Directions.South)
+            {
+                aLocation.Y += 20;
+            }
+            if (aDir == Directions.West)
+            {
+                aLocation.X -= 20;
+            }
+            foreach (Entity aEnt in myEntities)
+            {
+                if (aEnt.MyLocation.CheckIfInRange(aLocation)){
+                    return aEnt;
+                }
+            }
+            return null;
+        }
+
         protected bool CheckForDuplicates(Entity anEntity)
         {
             foreach (Entity aEntity in myEntities)
@@ -57,5 +84,6 @@ namespace MonoMiner
             }
             return false;
         }
+       
     }
 }

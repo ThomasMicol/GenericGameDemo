@@ -6,10 +6,11 @@ namespace MonoMiner
 {
     class Player : Entity
     {
-        protected float moveMult;
+        protected int moveMult;
         protected Directions facingDirection;
+        private int pickStrength = 10;
 
-        public Player(Location aLocation, Game aContext)
+        public Player(Location aLocation, Game1 aContext)
         {
             MyTexturePath = "Graphics\\player_right";
             moveMult = 5;
@@ -38,6 +39,10 @@ namespace MonoMiner
                 facingDirection = Directions.South;
                 MyLocation.Move(facingDirection, moveMult);
             }
+            if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.Space))
+            {
+                SwingPick();
+            }
             UpdateSprite();
         }
 
@@ -51,6 +56,20 @@ namespace MonoMiner
             {
                 SwitchSprite("Graphics\\player_left");
             }
+        }
+
+        protected void SwingPick()
+        {
+            Console.WriteLine("You swing your pick");
+            if (context.GetWorld().FindObject(MyLocation, facingDirection) is Mineable aMineableSpot)
+            {
+                aMineableSpot = (Mineable)context.GetWorld().FindObject(MyLocation, facingDirection);
+                aMineableSpot.Mine(pickStrength);
+            }else
+            {
+                Console.WriteLine("Your swing fails to find its mark. How embarassing!");
+            }
+            
         }
 
 

@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework;
 
 namespace MonoMiner
 {
-    class Stone : Entity
+    class Stone : Mineable
     {
         protected int Health { get; set; }
         
-        public Stone(Location aLocation, Game aContext)
+        public Stone(Location aLocation, Game1 aContext)
         {
             MyTexturePath = "Graphics\\stone";
             base.Initialize(MyTexturePath, aLocation, aContext);
@@ -16,7 +16,7 @@ namespace MonoMiner
 
         public override void Update(ControlWrapper aControlWrapper)
         {
-            Console.WriteLine(MyTexturePath);
+            MyTexturePath = "Graphics\\stone";
         }
         
         protected override void UpdateSprite()

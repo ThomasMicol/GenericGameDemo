@@ -7,18 +7,22 @@ namespace MonoMiner
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ControlWrapper controlWrapper;
         World myWorld;
 
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+        }
+
+        public World GetWorld()
+        {
+            return myWorld;
         }
 
         /// <summary>
@@ -85,8 +89,6 @@ namespace MonoMiner
             spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
             myWorld.Draw(spriteBatch);
             spriteBatch.End();
-
-
             base.Draw(gameTime);
         }
     }

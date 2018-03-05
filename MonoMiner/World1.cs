@@ -5,7 +5,7 @@ namespace MonoMiner
 {
     class World1 : World
     {
-        public World1(Game aContext)
+        public World1(Game1 aContext)
         {
             context = aContext;
             BuildWorld();
@@ -15,7 +15,6 @@ namespace MonoMiner
         {
             myEntities.Add(new Stone(new Location(3, 5, context), context));
             myEntities.Add(new Player(new Location(60, 40, context), context));
-
         }
 
     }

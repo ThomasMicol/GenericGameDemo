@@ -1,25 +1,27 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace MonoMiner
 {
     abstract class Entity 
     {
-        protected Location MyLocation{ get; set; }
+        public Location MyLocation{ get; set; }
         protected Texture2D MyTexture;
         protected string MyTexturePath;
-        protected Game context;
-
-        protected abstract void UpdateSprite();
+        protected Game1 context;
         
-        public void Initialize(string textureString, Location aLocation, Game aContext)
+        public void Initialize(string textureString, Location aLocation, Game1 aContext)
         { 
             MyLocation = aLocation;
             context = aContext;
             MyTexture = context.Content.Load<Texture2D>(textureString);
         }
 
-        public abstract void Update(ControlWrapper aControlWrapper);
+        public virtual void Update(ControlWrapper aControlWrapper)
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -30,6 +32,11 @@ namespace MonoMiner
         {
             MyTexturePath = newPath;
             MyTexture = context.Content.Load<Texture2D>(MyTexturePath);
+        }
+
+        protected virtual void UpdateSprite()
+        {
+            throw new NotImplementedException();
         }
 
 

@@ -1,17 +1,18 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 
 namespace MonoMiner
 {
     class Location
     {
-        protected Game myContext;
+        protected Game1 myContext;
 
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Location(int inX, int inY, Game aContext)
+        public Location(int inX, int inY, Game1 aContext)
         {
             myContext = aContext;
             X = inX;
@@ -24,23 +25,35 @@ namespace MonoMiner
             return vect;
         }
 
-        public void Move(Directions aDir, float moveSpeed)
+        public void Move(Directions aDir, int moveSpeed)
         {
             if(aDir == Directions.North)
             {
-                Y -= Convert.ToInt32(moveSpeed);
+                Y -= moveSpeed;
             }
             if (aDir == Directions.East)
             {
-                X += Convert.ToInt32(moveSpeed);
+                X += moveSpeed;
             }
             if (aDir == Directions.South)
             {
-                Y += Convert.ToInt32(moveSpeed);
+                Y += moveSpeed;
             }
             if (aDir == Directions.West)
             {
-                X -= Convert.ToInt32(moveSpeed);
+                X -= moveSpeed;
+            }
+        }
+
+        public bool CheckIfInRange(Location aLocation)
+        {
+            if(Enumerable.Range(X-20, X+20).Contains(aLocation.X) && Enumerable.Range(Y - 20, Y + 20).Contains(aLocation.Y))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
