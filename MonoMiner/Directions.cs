@@ -9,8 +9,8 @@ namespace MonoMiner
     public enum Directions
     {
         East = 1,
-        South = 1,
-        West = -1,
-        North = -1
+        South = 2,
+        West = 3,
+        North = 4
     }
 }

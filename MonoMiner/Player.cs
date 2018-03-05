@@ -30,7 +30,7 @@ namespace MonoMiner
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.A))
             {
-                facingDirection = Directions.East;
+                facingDirection = Directions.West;
                 MyLocation.Move(facingDirection, moveMult);
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.S))

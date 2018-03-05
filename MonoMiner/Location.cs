@@ -26,15 +26,22 @@ namespace MonoMiner
 
         public void Move(Directions aDir, float moveSpeed)
         {
-            if(aDir == Directions.North || aDir == Directions.South)
+            if(aDir == Directions.North)
             {
-                Y += (int)moveSpeed;
+                Y -= Convert.ToInt32(moveSpeed);
             }
-            else
+            if (aDir == Directions.East)
             {
-                X += (int)moveSpeed;
+                X += Convert.ToInt32(moveSpeed);
             }
-            
+            if (aDir == Directions.South)
+            {
+                Y += Convert.ToInt32(moveSpeed);
+            }
+            if (aDir == Directions.West)
+            {
+                X -= Convert.ToInt32(moveSpeed);
+            }
         }
     }
 }
