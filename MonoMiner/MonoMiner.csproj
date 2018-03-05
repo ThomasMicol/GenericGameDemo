@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ControlWrapper.cs" />
+    <Compile Include="Directions.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Game1.cs" />

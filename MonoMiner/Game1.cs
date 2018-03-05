@@ -82,7 +82,7 @@ namespace MonoMiner
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
             myWorld.Draw(spriteBatch);
             spriteBatch.End();
 

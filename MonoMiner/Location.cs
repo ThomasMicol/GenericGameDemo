@@ -6,8 +6,6 @@ namespace MonoMiner
 {
     class Location
     {
-        protected int x;
-        protected int y;
         protected Game myContext;
 
         public int X { get; set; }
@@ -24,6 +22,19 @@ namespace MonoMiner
         {
             Vector2 vect = new Vector2(X, Y);
             return vect;
+        }
+
+        public void Move(Directions aDir, float moveSpeed)
+        {
+            if(aDir == Directions.North || aDir == Directions.South)
+            {
+                Y += (int)moveSpeed;
+            }
+            else
+            {
+                X += (int)moveSpeed;
+            }
+            
         }
     }
 }

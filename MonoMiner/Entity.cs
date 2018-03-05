@@ -9,6 +9,8 @@ namespace MonoMiner
         protected Texture2D MyTexture;
         protected string MyTexturePath;
         protected Game context;
+
+        protected abstract void UpdateSprite();
         
         public void Initialize(string textureString, Location aLocation, Game aContext)
         { 
@@ -21,9 +23,14 @@ namespace MonoMiner
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(MyTexture, MyLocation.GetVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(MyTexture, MyLocation.GetVector2(), null, Color.White, 0f, Vector2.Zero, 5f, SpriteEffects.None, 0f);
         }
         
+        public virtual void SwitchSprite(string newPath)
+        {
+            MyTexturePath = newPath;
+            MyTexture = context.Content.Load<Texture2D>(MyTexturePath);
+        }
 
 
     }
