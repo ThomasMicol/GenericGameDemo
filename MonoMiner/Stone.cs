@@ -18,6 +18,11 @@ namespace MonoMiner
         {
             Console.WriteLine(MyTexturePath);
         }
+        
+        protected override void UpdateSprite()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

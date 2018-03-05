@@ -20,8 +20,8 @@ namespace MonoMiner
         public override void Update(ControlWrapper aControlWrapper)
         {
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.D)){
+
                 MyLocation.Move(facingDirection, moveMult);
-                SwitchSprite("Graphics\\player_right");
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.W))
             {
@@ -41,7 +41,14 @@ namespace MonoMiner
 
         protected override void UpdateSprite()
         {
-            throw new NotImplementedException();
+            if(facingDirection == Directions.East)
+            {
+                SwitchSprite("Graphics\\player_right");
+            }
+            if(facingDirection == Directions.West)
+            {
+                SwitchSprite("Graphics\\player_left");
+            }
         }
 
 
