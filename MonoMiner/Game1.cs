@@ -11,6 +11,7 @@ namespace MonoMiner
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        ControlWrapper controlWrapper;
         World myWorld;
 
 
@@ -29,6 +30,7 @@ namespace MonoMiner
         protected override void Initialize()
         {
             myWorld = new World1(this);
+            controlWrapper = new ControlWrapper();
             base.Initialize();
         }
 
@@ -63,7 +65,8 @@ namespace MonoMiner
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            myWorld.UpdateEntities();
+            controlWrapper.GetNextStates();
+            myWorld.UpdateEntities(controlWrapper);
 
             // TODO: Add your update logic here
             

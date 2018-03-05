@@ -20,11 +20,11 @@ namespace MonoMiner
             }
         }
 
-        public virtual void UpdateEntities()
+        public virtual void UpdateEntities(ControlWrapper controlWrapper)
         {
             foreach (Entity anEntity in myEntities)
             {
-                anEntity.Update();
+                anEntity.Update(controlWrapper);
             }
         }
 
