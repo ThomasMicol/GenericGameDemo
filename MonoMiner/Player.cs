@@ -13,6 +13,8 @@ namespace MonoMiner
         public Player(Location aLocation, Game1 aContext)
         {
             MyTexturePath = "Graphics\\player_right";
+            myWidth = 120;
+            myHeight = 160;
             moveMult = 5;
             facingDirection = Directions.East;
             base.Initialize(MyTexturePath, aLocation, aContext);

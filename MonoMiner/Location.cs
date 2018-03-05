@@ -43,6 +43,8 @@ namespace MonoMiner
             {
                 X -= moveSpeed;
             }
+            X = MathHelper.Clamp(X, 0, myContext.GraphicsDevice.Viewport.Width - 105);
+            Y = MathHelper.Clamp(Y, 0, myContext.GraphicsDevice.Viewport.Height - 155);
         }
 
         public bool CheckIfInRange(Location aLocation)

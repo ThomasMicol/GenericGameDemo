@@ -10,7 +10,11 @@ namespace MonoMiner
         protected Texture2D MyTexture;
         protected string MyTexturePath;
         protected Game1 context;
-        
+
+
+        protected int myWidth;
+        protected int myHeight;
+
         public void Initialize(string textureString, Location aLocation, Game1 aContext)
         { 
             MyLocation = aLocation;
