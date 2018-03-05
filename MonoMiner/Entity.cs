@@ -17,7 +17,7 @@ namespace MonoMiner
             MyTexture = context.Content.Load<Texture2D>(textureString);
         }
 
-        public abstract void Update();
+        public abstract void Update(ControlWrapper aControlWrapper);
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {

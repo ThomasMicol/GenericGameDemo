@@ -14,7 +14,7 @@ namespace MonoMiner
             base.Initialize(MyTexturePath, aLocation, aContext);
         }
 
-        public override void Update()
+        public override void Update(ControlWrapper aControlWrapper)
         {
             Console.WriteLine(MyTexturePath);
         }
