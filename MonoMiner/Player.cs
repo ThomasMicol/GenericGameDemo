@@ -20,21 +20,23 @@ namespace MonoMiner
         public override void Update(ControlWrapper aControlWrapper)
         {
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.D)){
-
+                facingDirection = Directions.East;
                 MyLocation.Move(facingDirection, moveMult);
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.W))
             {
-                MyLocation.Y -= (int)Math.Round(moveMult);
+                facingDirection = Directions.North;
+                MyLocation.Move(facingDirection, moveMult);
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.A))
             {
-                MyLocation.X -= (int)Math.Round(moveMult);
-                SwitchSprite("Graphics\\player_left");
+                facingDirection = Directions.East;
+                MyLocation.Move(facingDirection, moveMult);
             }
             if (aControlWrapper.GetKeyboardState().IsKeyDown(Keys.S))
             {
-                MyLocation.Y += (int)Math.Round(moveMult);
+                facingDirection = Directions.South;
+                MyLocation.Move(facingDirection, moveMult);
             }
             UpdateSprite();
         }
